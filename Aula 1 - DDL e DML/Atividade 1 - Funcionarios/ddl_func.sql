@@ -20,7 +20,7 @@ USE db_funcionario;
 
 #Cria tabela
 CREATE TABLE db_func(
-	id_func BIGINT AUTO_INCREMENT PRIMARY KEY UNIQUE,
+	id_func BIGINT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL,
     nome_func VARCHAR(255),
     end_func VARCHAR(255),
     cont_func DATE,
