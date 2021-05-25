@@ -32,27 +32,32 @@ os produtos que são cosméticos).
 salve as querys para cada uma dos requisitos o exercício em um arquivo .SQL ou texto e
 coloque no seu GitHuB pessoal e compartilhe esta atividade.*/
 
-CREATE DATABASE db_farmacia_do_bem;
-USE db_farmacia_do_bem;
+INSERT INTO tb_categoria(nome_cat,prat_cat) VALUES
+	("Remédio",1),
+    ("Cosméticos",3),
+    ("Descartáveis",12),
+    ("Primeiros Socorros",5),
+    ("Comida",4);
 
-CREATE TABLE tb_categoria(
-	id_cat INT PRIMARY KEY AUTO_INCREMENT UNIQUE,
-    nome_cat VARCHAR(255),
-    prat_cat INT(2),
-    vence_cat BOOLEAN DEFAULT TRUE,
-    uso_cat VARCHAR(255)
-    );
+INSERT INTO tb_prod(nome_prod,cat_prod,valor_prod,desc_prod) VALUES
+	("Doril",1,1.99,"Para dores"),
+    ("Xarope",1,7.00,"Para tosse"),
+    ("Fralda",3,29.00,"Fralda descartável"),
+    ("Gaze",4,32.00,"Para ferimentos"),
+    ("Pastel de Pizza",5,20.00,"Pastel de Pizza"),
+    ("Merthiolate",4,8.00,"Joga no ferimento e reza"),
+    ("Xampu",2,32.00,"Cuida dos cabelos"),
+    ("Bala",5,0.10,"Bala superfaturada de farmácia");
 
-CREATE TABLE tb_prod(
-	id_prod INT UNIQUE PRIMARY KEY AUTO_INCREMENT,
-    nome_prod VARCHAR(255) NOT NULL,
-    cat_prod INT NOT NULL,
-    desc_prod VARCHAR(255),
-    rest_prod BOOLEAN DEFAULT FALSE,
-    valor_prod FLOAT,
-    pop_prod BOOLEAN DEFAULT FALSE,
-    vendas_prod INT DEFAULT 0,
+SELECT * FROM tb_prod WHERE valor_prod>50;
+
+SELECT * FROM tb_prod WHERE valor_prod>=3 AND valor_prod<=60;
+
+SELECT * FROM tb_prod WHERE nome_prod LIKE "B%";
+
+SELECT * FROM tb_prod
+	INNER JOIN tb_categoria ON tb_prod.cat_prod = tb_categoria.id_cat;
     
-    FOREIGN KEY(cat_prod) REFERENCES tb_categoria(id_cat)
-    )
-    
+SELECT * FROM tb_prod
+	INNER JOIN tb_categoria ON tb_prod.cat_prod = tb_categoria.id_cat
+	WHERE tb_categoria.id_cat = 2;

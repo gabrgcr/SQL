@@ -32,8 +32,6 @@ os personagens que são arqueiros).
 salve as querys para cada uma dos requisitos do exercício em um arquivo .SQL ou texto e
 coloque no seu GitHuB pessoal e compartilhe esta atividade.*/
 
-USE tb_classe;
-
 INSERT INTO tb_classe(nome_classe,wpn_classe,enm_classe) VALUES 
 	("Guerreiro","Espada","Orcs"),
 	("Arqueiro","Arco","Pombo"),
@@ -41,8 +39,6 @@ INSERT INTO tb_classe(nome_classe,wpn_classe,enm_classe) VALUES
     ("Mago","Cedro","Etereos"),
     ("Ladino","Adaga","Ratos"),
     ("Feiticeiro","Varinha","Espíritos");
-    
-USE tb_personagem;
     
 INSERT INTO tb_personagem(nome_personagem,classe_personagem,atk_personagem,def_personagem) VALUES
 	("Legolas",2,100,2000),
